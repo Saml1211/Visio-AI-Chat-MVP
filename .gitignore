@@ -1,0 +1,38 @@
+# VBA/Visio specific
+*.vsd
+*.vsdx
+*.vss
+*.vst
+*.vsw
+*.vsdm
+*.vstm
+*.vssm
+*.log
+error_log.txt
+
+# Windows specific
+Thumbs.db
+Desktop.ini
+
+# macOS specific
+.DS_Store
+._*
+
+# IDE/Editor specific
+.vscode/
+.idea/
+*.swp
+*~
+
+# Temporary files
+~$*
+*.tmp
+*.temp
+
+# Local configuration
+*.config
+*.ini
+
+# Backup files
+*.bak
+*.backup 
