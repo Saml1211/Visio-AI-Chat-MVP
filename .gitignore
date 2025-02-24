@@ -17,6 +17,11 @@ Desktop.ini
 # macOS specific
 .DS_Store
 ._*
+.AppleDouble
+.LSOverride
+Icon
+.Spotlight-V100
+.Trashes
 
 # IDE/Editor specific
 .vscode/
