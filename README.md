@@ -1,105 +1,97 @@
 # Visio AI Chat MVP
 
-A Microsoft Visio VBA integration for AI-powered shape interactions and automated diagram enhancements.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/yourusername/Visio-AI-Chat-MVP/releases/tag/v0.1.0)
 
-## Features
+A Microsoft Visio VBA integration that enhances your diagrams using OpenAI's GPT models. This tool automatically analyzes and improves the text content of your Visio shapes using AI.
 
-- API client with configurable endpoints and rate limiting
-- Batch request queue system with retry logic
-- JSON payload builder with extensible parameters
-- Shape-text to AI prompt auto-generation
-- Response mapping to shape metadata
-- Real-time preview in modeless UserForm
-- Version control for API configurations
+![Visio AI Chat Demo](docs/images/demo.gif)
 
-## Prerequisites
+## 🌟 Features
 
-- Microsoft Visio 2019 or later
-- VBA Development environment enabled
-- Windows OS (for DPAPI integration)
+- 🤖 OpenAI GPT integration for intelligent shape text enhancement
+- 📦 Batch processing of multiple shapes
+- 🔑 Secure API key management
+- 📊 Progress tracking and status updates
+- 📝 Comprehensive error logging
+- 🔄 Automatic shape metadata updates
 
-## Project Structure
+## 🚀 Quick Start
 
-```
-src/
-├── Classes/
-│   ├── APIClient.cls         - Base API client implementation
-│   ├── BatchProcessor.cls    - Request queue management
-│   ├── JSONBuilder.cls      - Payload construction
-│   ├── ErrorLogger.cls      - Logging implementation
-│   └── ConfigManager.cls    - API configuration management
-├── Modules/
-│   ├── Main.bas            - Entry point and core functions
-│   ├── Utils.bas           - Helper utilities
-│   └── Constants.bas       - Project constants
-└── Forms/
-    └── PreviewForm.frm     - Real-time preview UI
-```
+1. **Prerequisites**
+   - Microsoft Visio 2019 or later
+   - OpenAI API key ([Get one here](https://platform.openai.com/api-keys))
+   - VBA enabled in Visio
 
-## Setup Instructions
+2. **Installation**
+   ```
+   1. Open Visio and press Alt + F11
+   2. Import all .cls and .bas files from src/
+   3. Enable required references in Tools > References
+   ```
 
-1. Enable VBA Development in Visio:
-   - File → Options → Trust Center → Trust Center Settings
-   - Enable "Trust access to the VBA project object model"
+3. **First Run**
+   ```vba
+   ' Initialize the system (will prompt for API key)
+   Initialize
+   
+   ' Process selected shapes
+   ProcessSelectedShapes
+   ```
 
-2. Import Required References:
-   - Microsoft Scripting Runtime
-   - Microsoft WinHTTP Services
-   - Microsoft Visual Basic for Applications Extensibility
+👉 [View the Quick Start Guide](docs/QuickStart.md) for detailed instructions.
 
-3. Import the VBA Modules:
-   - Import all .cls, .bas, and .frm files from the src directory
-   - Ensure all dependencies are properly referenced
+## 📚 Documentation
 
-4. Configure API Settings:
-   - Open the ConfigManager and set your API credentials
-   - Adjust rate limiting settings if needed (default: 60 RPM)
+- [User Guide](docs/UserGuide.md) - Complete usage instructions
+- [Technical Reference](docs/TechnicalReference.md) - Architecture and development details
+- [Quick Start Guide](docs/QuickStart.md) - Get up and running quickly
+- [Changelog](CHANGELOG.md) - Version history and updates
 
-## Usage
+## 🏗️ Architecture
 
-1. Basic Shape Integration:
-```vba
-' Select a shape and generate AI response
-Public Sub UpdateShapeWithAI()
-    Dim selectedShape As Visio.Shape
-    Set selectedShape = Application.ActiveWindow.Selection(1)
-    Call UpdateShapeWithAIResponse(selectedShape)
-End Sub
-```
+The solution consists of five main components:
 
-2. Batch Processing:
-```vba
-' Process multiple shapes
-Public Sub ProcessShapeBatch()
-    Dim shapes As New Collection
-    ' Add shapes to collection
-    Call ProcessPromptBatch(shapes)
-End Sub
-```
+1. **APIClient** - Handles OpenAI API communication
+2. **BatchProcessor** - Manages shape processing queue
+3. **ErrorLogger** - Provides logging functionality
+4. **Constants** - Centralizes configuration
+5. **Main** - Manages system lifecycle
 
-## Error Handling
+## 🔒 Security
 
-The system includes comprehensive error logging:
-- All errors are logged to a dedicated worksheet
-- Critical errors trigger user notifications
-- Automatic retry logic for transient failures
+- API keys stored securely using VBA's built-in settings
+- HTTPS-only communication
+- No sensitive data in logs
+- Basic access controls
 
-## Security Notes
+## 🤝 Contributing
 
-- API keys are stored securely using Windows DPAPI
-- All HTTP communications use TLS 1.2+
-- No sensitive data is stored in plain text
-
-## Contributing
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
 1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## License
+## 📝 License
 
-MIT License - See LICENSE file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Support
+## 🙏 Acknowledgments
 
-For support and feature requests, please open an issue in the repository.
+- OpenAI for their powerful GPT models
+- Microsoft Visio team for their extensible platform
+- All contributors and users of this project
+
+## 📞 Support
+
+If you encounter any issues or have questions:
+
+1. Check the [User Guide](docs/UserGuide.md)
+2. Review the error log (`error_log.txt`)
+3. [Open an issue](../../issues) on GitHub
+
+---
+Made with ❤️ by the Visio AI Chat team
